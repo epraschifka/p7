@@ -12,6 +12,11 @@ int PrefixMatcher::selectRouter(std::string networkAddress)
 
     for (char c : networkAddress)
     {
+        if (dummy->children[c - '0'] == NULL)
+        {
+            break;
+        }
+
         curr.push_back(c);
         dummy = dummy->children[c - '0'];
     }
